@@ -24,13 +24,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
 
+--[[
+Defold integration by Dima Popov and Niclas Åberg.
+--]]
+
+local a = require "hc.class"
+local a = require "hc.gjk"
+local a = require "hc.polygon"
+local Shapes = require "hc.shapes"
+local Spatialhash = require "hc.spatialhash"
+local a = require "hc.vector-light"
+local _NAME, common_local = "hc", common
+
 local _NAME, common_local = ..., common
 if not (type(common) == 'table' and common.class and common.instance) then
 	assert(common_class ~= false, 'No class commons specification available.')
 	require(_NAME .. '.class')
 end
-local Shapes      = require(_NAME .. '.shapes')
-local Spatialhash = require(_NAME .. '.spatialhash')
 
 -- reset global table `common' (required by class commons)
 if common_local ~= common then

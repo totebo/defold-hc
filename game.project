@@ -9,7 +9,7 @@ width = 960
 height = 640
 
 [project]
-title = States
+title = Defold HC
 
 [library]
 include_dirs = hc
