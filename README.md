@@ -11,12 +11,9 @@ Or point to the ZIP file of a [specific release](https://github.com/totebo/defol
 
 ## Example
 
-Todo.
+-- Init
+HC = require "hc.hardoncollider"
 
-### hc.method()
-Todo: Add methods.
+Refer to Hardon Collider reference for usage:
 
-
-**PARAMETERS**
-
-* `todo` Add parameters. 
+    https://vrld.github.io/HardonCollider/reference.html#hardoncolliderHC:addPolygon

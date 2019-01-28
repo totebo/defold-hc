@@ -25,7 +25,7 @@ THE SOFTWARE.
 ]]--
 
 --[[
-Defold integration by Dima Popov and Niclas Åberg.
+Defold integration by Dima Popov and Niclas Åberg 2019.
 --]]
 
 local a = require "hc.class"
