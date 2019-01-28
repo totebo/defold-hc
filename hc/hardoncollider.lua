@@ -23,20 +23,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
-
---[[
-Defold integration by Dima Popov and Niclas Åberg 2019.
---]]
-
-local a = require "hc.class"
-local a = require "hc.gjk"
-local a = require "hc.polygon"
-local Shapes = require "hc.shapes"
-local Spatialhash = require "hc.spatialhash"
-local a = require "hc.vector-light"
-local _NAME, common_local = "hc", common
-
-local _NAME, common_local = ..., common
+local a = require "libs.hc.class"
+local a = require "libs.hc.gjk"
+local a = require "libs.hc.polygon"
+local Shapes = require "libs.hc.shapes"
+local Spatialhash = require "libs.hc.spatialhash"
+local a = require "libs.hc.vector-light"
+local _NAME, common_local = "libs.hc", common
 if not (type(common) == 'table' and common.class and common.instance) then
 	assert(common_class ~= false, 'No class commons specification available.')
 	require(_NAME .. '.class')
@@ -50,7 +43,7 @@ end
 local newPolygonShape = Shapes.newPolygonShape
 local newCircleShape  = Shapes.newCircleShape
 local newPointShape   = Shapes.newPointShape
-
+---@class HC
 local HC = {}
 function HC:init(cell_size)
   self:resetHash(cell_size)
@@ -128,22 +121,14 @@ function HC:collisions(shape)
 	return candidates
 end
 
-function HC:shapesAt(x, y)
-	local candidates = {}
-	for c in pairs(self._hash:cellAt(x, y)) do
-		if c:contains(x, y) then
-			rawset(candidates, c, c)
-		end
-	end
-	return candidates
-end
-
 -- the class and the instance
+
 HC = common_local.class('HardonCollider', HC)
 local instance = common_local.instance(HC)
 
 -- the module
-return setmetatable({
+---@type HC
+local set_mt = setmetatable({
 	new       = function(...) return common_local.instance(HC, ...) end,
 	resetHash = function(...) return instance:resetHash(...) end,
 	register  = function(...) return instance:register(...) end,
@@ -156,6 +141,6 @@ return setmetatable({
 
 	neighbors  = function(...) return instance:neighbors(...) end,
 	collisions = function(...) return instance:collisions(...) end,
-	shapesAt   = function(...) return instance:shapesAt(...) end,
-	hash       = function() return instance.hash() end,
+	hash       = function() return instance:hash() end,
 }, {__call = function(_, ...) return common_local.instance(HC, ...) end})
+return set_mt
