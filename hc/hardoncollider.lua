@@ -23,13 +23,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
-local a = require "libs.hc.class"
-local a = require "libs.hc.gjk"
-local a = require "libs.hc.polygon"
-local Shapes = require "libs.hc.shapes"
-local Spatialhash = require "libs.hc.spatialhash"
-local a = require "libs.hc.vector-light"
-local _NAME, common_local = "libs.hc", common
+local a = require "hc.class"
+local a = require "hc.gjk"
+local a = require "hc.polygon"
+local Shapes = require "hc.shapes"
+local Spatialhash = require "hc.spatialhash"
+local a = require "hc.vector-light"
+local _NAME, common_local = "hc", common
 if not (type(common) == 'table' and common.class and common.instance) then
 	assert(common_class ~= false, 'No class commons specification available.')
 	require(_NAME .. '.class')
