@@ -14,4 +14,4 @@ Or point to the ZIP file of a [specific release](https://github.com/totebo/defol
 
 Refer to Hardon Collider reference for usage:
 
-https://vrld.github.io/HardonCollider/reference.html
+https://hc.readthedocs.io/en/latest/
