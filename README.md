@@ -11,9 +11,8 @@ Or point to the ZIP file of a [specific release](https://github.com/totebo/defol
 
 ## Example
 
--- Init
-HC = require "hc.hardoncollider"
+      HC = require "hc.hardoncollider"
 
 Refer to Hardon Collider reference for usage:
 
-    https://vrld.github.io/HardonCollider/reference.html#hardoncolliderHC:addPolygon
+https://vrld.github.io/HardonCollider/reference.html#hardoncolliderHC:addPolygon
