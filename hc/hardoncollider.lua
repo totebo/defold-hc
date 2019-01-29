@@ -25,13 +25,6 @@ THE SOFTWARE.
 ]]--
 
 
-
-
-require "hc.class"
-require "hc.gjk"
-require "hc.polygon"
-require "hc.vector-light"
-
 local Spatialhash = require "hc.spatialhash"
 local Shapes = require "hc.shapes"
 
@@ -40,9 +33,6 @@ if not (type(common) == 'table' and common.class and common.instance) then
 	assert(common_class ~= false, 'No class commons specification available.')
 	require(_NAME .. '.class')
 end
-
---local Shapes      = require(_NAME .. '.shapes')
---local Spatialhash = require(_NAME .. '.spatialhash')
 
 -- reset global table `common' (required by class commons)
 if common_local ~= common then
@@ -162,7 +152,7 @@ return setmetatable({
 	hash       = function() return instance.hash() end,
 }, {__call = function(_, ...) return common_local.instance(HC, ...) end})
 
-	
+
 --[[
 local a = require "hc.class"
 local a = require "hc.gjk"
