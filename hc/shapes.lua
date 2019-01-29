@@ -24,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
 
+
+local vector = require "hc.vector-light"
+local Polygon = require "hc.polygon"
+local GJK = require "hc.gjk"
+
 local math_min, math_sqrt, math_huge = math.min, math.sqrt, math.huge
 
 local _PACKAGE, common_local = (...):match("^(.+)%.[^%.]+"), common
@@ -31,9 +36,9 @@ if not (type(common) == 'table' and common.class and common.instance) then
 	assert(common_class ~= false, 'No class commons specification available.')
 	require(_PACKAGE .. '.class')
 end
-local vector  = require(_PACKAGE .. '.vector-light')
-local Polygon = require(_PACKAGE .. '.polygon')
-local GJK     = require(_PACKAGE .. '.gjk') -- actual collision detection
+--local vector  = require(_PACKAGE .. '.vector-light')
+--local Polygon = require(_PACKAGE .. '.polygon')
+--local GJK     = require(_PACKAGE .. '.gjk') -- actual collision detection
 
 -- reset global table `common' (required by class commons)
 if common_local ~= common then
@@ -464,4 +469,3 @@ return {
 	newCircleShape      = newCircleShape,
 	newPointShape       = newPointShape,
 }
-

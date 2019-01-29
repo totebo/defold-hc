@@ -24,8 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
 
+local vector = require "hc.vector-light"
+
 local _PACKAGE = (...):match("^(.+)%.[^%.]+")
-local vector  = require(_PACKAGE .. '.vector-light')
+--local vector  = require(_PACKAGE .. '.vector-light')
 local huge, abs = math.huge, math.abs
 
 local simplex, edge = {}, {}

@@ -26,9 +26,8 @@ THE SOFTWARE.
 
 
 require "hc.class"
-require "hc.gjk"
-require "hc.polygon"
-require "hc.vector-light"
+--require "hc.gjk"
+--require "hc.polygon"
 
 local Spatialhash = require "hc.spatialhash"
 local Shapes = require "hc.shapes"

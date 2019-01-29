@@ -20,6 +20,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
 
+local vector = require "hc.vector-light"
+
 local floor = math.floor
 local min, max = math.min, math.max
 
@@ -29,7 +31,7 @@ if not (type(common) == 'table' and common.class and common.instance) then
 	require(_PACKAGE .. '.class')
 	common_local, common = common, common_local
 end
-local vector  = require(_PACKAGE .. '.vector-light')
+--local vector  = require(_PACKAGE .. '.vector-light')
 
 local Spatialhash = {}
 function Spatialhash:init(cell_size)

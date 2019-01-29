@@ -24,13 +24,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
 
+local vector = require "hc.vector-light"
+
 local _PACKAGE, common_local = (...):match("^(.+)%.[^%.]+"), common
 if not (type(common) == 'table' and common.class and common.instance) then
 	assert(common_class ~= false, 'No class commons specification available.')
 	require(_PACKAGE .. '.class')
 	common_local, common = common, common_local
 end
-local vector = require(_PACKAGE .. '.vector-light')
+--local vector = require(_PACKAGE .. '.vector-light')
 
 ----------------------------
 -- Private helper functions
@@ -390,7 +392,7 @@ function Polygon:splitConvex()
 		end
 		i = i + 1
 	until i >= #convex
-	
+
 	return convex
 end
 
