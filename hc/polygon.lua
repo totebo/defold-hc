@@ -24,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
 
+local abs = math.abs
+local max = math.max
+local min = math.min
+local huge = math.huge
+
 local vector = require "hc.vector-light"
 
 local _PACKAGE, common_local = (...):match("^(.+)%.[^%.]+"), common
@@ -47,7 +52,7 @@ end
 
 -- returns true if three vertices lie on a line
 local function areCollinear(p, q, r, eps)
-	return math.abs(vector.det(q.x-p.x, q.y-p.y,  r.x-p.x,r.y-p.y)) <= (eps or 1e-32)
+	return abs(vector.det(q.x-p.x, q.y-p.y,  r.x-p.x,r.y-p.y)) <= (eps or 1e-32)
 end
 -- remove vertices that lie on a line
 local function removeCollinear(vertices)
@@ -198,7 +203,7 @@ function Polygon:init(...)
 	-- get outcircle
 	self._radius = 0
 	for i = 1,#vertices do
-		self._radius = math.max(self._radius,
+		self._radius = max(self._radius,
 			vector.dist(vertices[i].x,vertices[i].y, self.centroid.x,self.centroid.y))
 	end
 end
@@ -466,11 +471,11 @@ function Polygon:intersectionsWithRay(x,y, dx,dy)
 end
 
 function Polygon:intersectsRay(x,y, dx,dy)
-	local tmin = math.huge
+	local tmin = huge
 	for _, t in ipairs(self:intersectionsWithRay(x,y,dx,dy)) do
-		tmin = math.min(tmin, t)
+		tmin = min(tmin, t)
 	end
-	return tmin ~= math.huge, tmin
+	return tmin ~= huge, tmin
 end
 
 Polygon = common_local.class('Polygon', Polygon)

@@ -24,6 +24,7 @@ local vector = require "hc.vector-light"
 
 local floor = math.floor
 local min, max = math.min, math.max
+local huge = math.huge
 
 local _PACKAGE, common_local = (...):match("^(.+)%.[^%.]+"), common
 if not (type(common) == 'table' and common.class and common.instance) then
@@ -154,7 +155,7 @@ function Spatialhash:intersectionsWithSegment(x1, y1, x2, y2)
 	local step = self.cell_size / 2
 	local visited = {}
 	local points = {}
-	local mt = math.huge
+	local mt = huge
 
 	while (cur + step < len) do
 		local cx, cy = x1 + dx * cur,  y1 + dy * cur

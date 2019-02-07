@@ -30,6 +30,7 @@ local Polygon = require "hc.polygon"
 local GJK = require "hc.gjk"
 
 local math_min, math_sqrt, math_huge = math.min, math.sqrt, math.huge
+local abs = math.abs
 
 local _PACKAGE, common_local = (...):match("^(.+)%.[^%.]+"), common
 if not (type(common) == 'table' and common.class and common.instance) then
@@ -149,10 +150,10 @@ function ConcavePolygonShape:collidesWith(other)
 		local status, sx,sy = s:collidesWith(other)
 		collide = collide or status
 		if status then
-			if math.abs(dx) < math.abs(sx) then
+			if abs(dx) < abs(sx) then
 				dx = sx
 			end
-			if math.abs(dy) < math.abs(sy) then
+			if abs(dy) < abs(sy) then
 				dy = sy
 			end
 		end
