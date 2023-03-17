@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 local vector = require "hc.vector-light"
 
-local _PACKAGE = (...):match("^(.+)%.[^%.]+")
+--local _PACKAGE = (...):match("^(.+)%.[^%.]+")
 --local vector  = require(_PACKAGE .. '.vector-light')
 local huge, abs = math.huge, math.abs
 
