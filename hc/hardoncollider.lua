@@ -25,9 +25,9 @@ THE SOFTWARE.
 ]]--
 
 
-local a = require "hc.class"
-local a = require "hc.gjk"
-local a = require "hc.polygon"
+local class = require "hc.class"
+local gjk = require "hc.gjk"
+local polygon = require "hc.polygon"
 local Spatialhash = require "hc.spatialhash"
 local Shapes = require "hc.shapes"
 
