@@ -16,7 +16,6 @@ local HC = require "hc.hardoncollider"
 function init(self)
 
 	-- Global collider
-
 	local global_ball = HC.circle(100, 100, 20)
 	local global_rect = HC.rectangle(110, 90, 20, 100)
 
