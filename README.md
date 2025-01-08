@@ -38,5 +38,5 @@ end
 Refer to Hardon Collider reference for usage:
 
 https://hc.readthedocs.io/en/latest/
-
 https://github.com/vrld/HC
+https://vrld.github.io/HardonCollider/
