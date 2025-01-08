@@ -10,7 +10,20 @@ Or point to the ZIP file of a [specific release](https://github.com/totebo/defol
 
 ## Example
 
-      HC = require "hc.hardoncollider"
+    local HC = require "hc.hardoncollider"
+    
+    local collider = HC.new()
+    
+    function init(self)
+    
+    	local ball = collider:circle(100, 100, 20)
+    	local rect = collider:rectangle(110, 90, 20, 100)
+    
+    	for shape, delta in pairs(collider:collisions(ball)) do
+    	    shape:move(delta.x, delta.y)
+    	end
+    
+    end
 
 Refer to Hardon Collider reference for usage:
 
