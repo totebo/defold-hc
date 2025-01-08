@@ -11,19 +11,28 @@ Or point to the ZIP file of a [specific release](https://github.com/totebo/defol
 ## Example
 
 ```lua
-
 local HC = require "hc.hardoncollider"
-
-local collider = HC.new()
 
 function init(self)
 
-    local ball = collider:circle(100, 100, 20)
-    local rect = collider:rectangle(110, 90, 20, 100)
+	-- Global collider
 
-    for shape, delta in pairs(collider:collisions(ball)) do
-        shape:move(delta.x, delta.y)
-    end
+	local global_ball = HC.circle(100, 100, 20)
+	local global_rect = HC.rectangle(110, 90, 20, 100)
+
+	for shape, delta in pairs(HC.collisions(global_ball)) do
+		shape:move(delta.x, delta.y)
+	end
+
+	-- Instanciated collider, if using more than one game world
+	local collider = HC.new()
+
+	local ball = collider:circle(100, 100, 20)
+	local rect = collider:rectangle(110, 90, 20, 100)
+
+	for shape, delta in pairs(collider:collisions(ball)) do
+		shape:move(delta.x, delta.y)
+	end
 
 end
 ```
